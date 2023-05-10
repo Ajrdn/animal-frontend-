@@ -33,7 +33,7 @@ const pagination = css`
 
 const AnimalsMain = () => {
   const [page, setPage] = useState(1)
-  const [pageCount, setPageCount] = useState(1000)
+  const [pageCount, setPageCount] = useState(0)
 
   return (
     <div css={css`

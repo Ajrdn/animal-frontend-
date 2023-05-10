@@ -15,7 +15,7 @@ const animalsSection = css`
 `
 
 const standard = css`
-  padding: 15px 40px;
+  padding: 10px 20px;
   border: 3px solid #C0C9D6;
   border-radius: 5px;
 `

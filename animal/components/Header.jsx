@@ -100,7 +100,7 @@ const Header = (props) => {
         >
             Caution
         </Link>
-        <Link href='/'
+        <Link href='/Donate'
           css={[fonts, css`
             color: ${props.donate ? 'black' : 'white'};
             border: ${props.donate ? '3px solid black' : 'none'};

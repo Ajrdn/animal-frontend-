@@ -29,7 +29,7 @@ const AnimalsList = (props) => {
 
   useEffect(() => {
     const getAnimals = async() => {
-      const data = await axios.get('http://127.0.0.1:8080/getAnimalListData/oldDate')
+      const data = await axios.get('http://127.0.0.1:8080/getAnimalListData/oldDate?dog=true&cat=true&etc=true')
       setAnimals(data.data)
       props.setPageCount(data.data.length)
     }
@@ -40,15 +40,15 @@ const AnimalsList = (props) => {
   useEffect(() => {
     const getNewAnimals = async() => {
       let data
-      if(newStandard) data = await axios.get('http://127.0.0.1:8080/getAnimalListData/newDate')
-      else data = await axios.get('http://127.0.0.1:8080/getAnimalListData/oldDate')
+      if(newStandard) data = await axios.get(`http://127.0.0.1:8080/getAnimalListData/newDate?dog=${dog}&cat=${cat}&etc=${etc}`)
+      else data = await axios.get(`http://127.0.0.1:8080/getAnimalListData/oldDate?dog=${dog}&cat=${cat}&etc=${etc}`)
 
       setAnimals(data.data)
       props.setPageCount(data.data.length)
     }
 
     getNewAnimals()
-  }, [newStandard])
+  }, [newStandard, dog, cat, etc])
 
   return (
     <>

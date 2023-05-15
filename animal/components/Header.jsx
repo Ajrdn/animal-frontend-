@@ -78,7 +78,7 @@ const Header = (props) => {
         >
             Our Shelter
         </Link>
-        <Link href='/'
+        <Link href='/Stats'
           css={[fonts, css`
             color: ${props.stats ? 'black' : 'white'};
             border: ${props.stats ? '3px solid black' : 'none'};

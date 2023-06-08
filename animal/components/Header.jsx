@@ -14,6 +14,10 @@ const fonts = css`
 `
 
 const Header = (props) => {
+  const links = ['/', '/Animals', '/Shelters', '/Stats', '/Caution', '/Donate']
+  const names = ['Home', 'Our Pets', 'Our Shelter', 'Stats', 'Caution', 'Donate']
+  const conditions = [props.home, props.animals, props.shelters, props.stats, props.caution, props.donate]
+
   return (
     <header
       css={css`
@@ -45,72 +49,21 @@ const Header = (props) => {
           align-items: center;
         `}
       >
-        <Link href='/'
-          css={[fonts, css`
-            color: ${props.home ? 'black' : 'white'};
-            border: ${props.home ? '3px solid black' : 'none'};
-            border-radius: 30px;
-            padding: 3px 25px;
-          `]}
-          className={font.className}
-        >
-            Home
-        </Link>
-        <Link href='/Animals'
-          css={[fonts, css`
-            color: ${props.animals ? 'black' : 'white'};
-            border: ${props.animals ? '3px solid black' : 'none'};
-            border-radius: 30px;
-            padding: 3px 25px;
-          `]}
-          className={font.className}
-        >
-            Our Pets
-        </Link>
-        <Link href='/Shelters'
-          css={[fonts, css`
-            color: ${props.shelters ? 'black' : 'white'};
-            border: ${props.shelters ? '3px solid black' : 'none'};
-            border-radius: 30px;
-            padding: 3px 25px;
-          `]}
-          className={font.className}
-        >
-            Our Shelter
-        </Link>
-        <Link href='/Stats'
-          css={[fonts, css`
-            color: ${props.stats ? 'black' : 'white'};
-            border: ${props.stats ? '3px solid black' : 'none'};
-            border-radius: 30px;
-            padding: 3px 25px;
-          `]}
-          className={font.className}
-        >
-            Stats
-        </Link>
-        <Link href='/Caution'
-          css={[fonts, css`
-            color: ${props.caution ? 'black' : 'white'};
-            border: ${props.caution ? '3px solid black' : 'none'};
-            border-radius: 30px;
-            padding: 3px 25px;
-          `]}
-          className={font.className}
-        >
-            Caution
-        </Link>
-        <Link href='/Donate'
-          css={[fonts, css`
-            color: ${props.donate ? 'black' : 'white'};
-            border: ${props.donate ? '3px solid black' : 'none'};
-            border-radius: 30px;
-            padding: 3px 25px;
-          `]}
-          className={font.className}
-        >
-          Donate
-        </Link>
+        {links.map((link, index) =>
+          <Link
+            href={link}
+            css={[fonts, css`
+              color: ${conditions[index] ? 'black' : 'white'};
+              border: ${conditions[index] ? '3px solid black' : 'none'};
+              border-radius: 30px;
+              padding: 3px 25px;
+            `]}
+            className={font.className}
+            key={link}
+          >
+            {names[index]}
+          </Link>
+        )}
       </div>
     </header>
   )
